@@ -1,0 +1,44 @@
+{
+  "entityid": 1,
+  "humanid": 1,
+  "firstname": "Angus",
+  "middlename": "Michael",
+  "lastname": "Waters",
+  "species": "Neanderthal",
+  "tribeid": 3,
+
+  "x": 2.0,
+  "y": 0.0,
+  "z": 1.0,
+
+  "health": 98,
+  "age": 22,
+  "stomach": 88,
+
+  "leadership": 4,
+
+  "stress": 12,
+  "stimulation": 34,
+  "love": 67,
+  "sex": 1,
+
+  "fletching": 2,
+  "knapping": 1,
+  "tanning": 0,
+  "weaving": 3,
+  "cordage": 0,
+
+  "foraging": 4,
+  "hunting": 5,
+  "fishing": 1,
+  "firemaking": 2,
+  "tracking": 3,
+  "shelterBuilding": 2,
+  "cooking": 4,
+
+  "painting": 1,
+  "music": 2,
+  "ritual": 0,
+
+  "animalTaming": 1
+}
