@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412139, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_Name
-      value: Sapien
+      value: Erectus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
@@ -74,11 +74,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008eb8c86b11742029c10f0c5fa33ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_name: 
+  entityid: 0
   age: 0
-  health: 0
+  health: 100
+  stomach: 100
+  hungerRate: 0.3
   speed: 0
+  strength: 0
+  swimming: 0
+  humanid: 0
   firstname: 
   middlename: 
   lastname: 
   tribeid: 0
+  leadership: 0
+  stress: 0
+  stimulation: 0
+  love: 0
+  sex: 0
+  fletching: 0
+  knapping: 0
+  tanning: 0
+  weaving: 0
+  cordage: 0
+  foraging: 0
+  hunting: 0
+  fishing: 0
+  firemaking: 0
+  tracking: 0
+  shelterBuilding: 0
+  cooking: 0
+  painting: 0
+  music: 0
+  ritual: 0
+  animalTaming: 0

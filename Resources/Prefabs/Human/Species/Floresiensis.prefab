@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412139, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_Name
-      value: Luzonenis
+      value: Floresiensis
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
@@ -88,11 +88,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityid: 0
   age: 0
-  health: 0
+  health: 100
   stomach: 0
+  hungerRate: 0.3
   speed: 0
   strength: 0
   swimming: 0
+  humanid: 0
   firstname: 
   middlename: 
   lastname: 

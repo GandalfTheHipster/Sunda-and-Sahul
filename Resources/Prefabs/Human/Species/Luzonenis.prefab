@@ -90,9 +90,11 @@ MonoBehaviour:
   age: 0
   health: 0
   stomach: 0
+  hungerRate: 0.3
   speed: 0
   strength: 0
   swimming: 0
+  humanid: 0
   firstname: 
   middlename: 
   lastname: 

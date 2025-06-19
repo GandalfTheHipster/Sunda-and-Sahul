@@ -7,9 +7,9 @@ public class Creature : MonoBehaviour
     public int age;
 
     [Header("Vitals")]
-    public int health;
+    public int health = 100;
     public float stomach = 100;
-    public float hungerRate = 0.5f;
+    public float hungerRate = 0.1f;
 
     [Header("Stats")]
     public int speed;
@@ -28,6 +28,11 @@ public class Creature : MonoBehaviour
     {
         Debug.Log($"{entityid} eats.");
         stomach += 10;
+    }
+
+    public virtual void Kill()
+    {
+        Debug.Log($"{entityid} dies.");
     }
 
     public void Thought()
@@ -56,7 +61,7 @@ public class Creature : MonoBehaviour
         }
         else
         {
-            stomach = 25;
+            stomach = 0;
             Debug.Log($"{entityid} is starving!");
         }
     }
