@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityid: 0
   age: 0
-  health: 0
+  health: 100
   stomach: 100
   hungerRate: 0.3
   speed: 0

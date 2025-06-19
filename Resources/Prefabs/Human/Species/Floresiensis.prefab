@@ -89,7 +89,7 @@ MonoBehaviour:
   entityid: 0
   age: 0
   health: 100
-  stomach: 0
+  stomach: 100
   hungerRate: 0.3
   speed: 0
   strength: 0
