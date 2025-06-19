@@ -13,15 +13,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412135, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6349593
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412135, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8618276
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412135, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6349593
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412135, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,10 +63,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5758001259031412137, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bdb34b0b1e1ed49f2943d10bae4326a2, type: 2}
     - target: {fileID: 5758001259031412139, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_Name
       value: Luzonenis
       objectReference: {fileID: 0}
+    - target: {fileID: 7466593010826535192, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66ea40fe188404a7c8aa9f0f6ffb68d9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
 --- !u!1 &4735056885704960657 stripped

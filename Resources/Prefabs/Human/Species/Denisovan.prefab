@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412135, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.0492852
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412135, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,9 +55,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5758001259031412137, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 579c8e0fe8dd640c488a281c4cf295d2, type: 2}
     - target: {fileID: 5758001259031412139, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_Name
-      value: Neanderthal
+      value: Denisovan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
@@ -78,11 +82,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e74c2e551ef41faa966f0a8563493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_name: 
+  entityid: 0
   age: 0
   health: 0
+  stomach: 100
+  hungerRate: 0.1
   speed: 0
+  strength: 0
+  swimming: 0
+  humanid: 0
   firstname: 
   middlename: 
   lastname: 
   tribeid: 0
+  leadership: 0
+  stress: 0
+  stimulation: 0
+  love: 0
+  sex: 0
+  fletching: 0
+  knapping: 0
+  tanning: 0
+  weaving: 0
+  cordage: 0
+  foraging: 0
+  hunting: 0
+  fishing: 0
+  firemaking: 0
+  tracking: 0
+  shelterBuilding: 0
+  cooking: 0
+  painting: 0
+  music: 0
+  ritual: 0
+  animalTaming: 0

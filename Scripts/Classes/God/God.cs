@@ -41,8 +41,7 @@ public class God : MonoBehaviour
 
     void Awake()
     {
-        JoinGame(); // 🔥 Automatically called on initialization
-        DisplayPoints();
+        
     }
 
     void Update()

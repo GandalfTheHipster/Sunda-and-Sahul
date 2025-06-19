@@ -51,10 +51,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5758001259031412137, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79a6889a5af1f40899719413d130080e, type: 2}
     - target: {fileID: 5758001259031412139, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_Name
       value: Sapien
       objectReference: {fileID: 0}
+    - target: {fileID: 7466593010826535192, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79a6889a5af1f40899719413d130080e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
 --- !u!1 &4735056885704960657 stripped
