@@ -1,6 +1,7 @@
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PawnLoader : MonoBehaviour
 {
@@ -22,15 +23,17 @@ public class PawnLoader : MonoBehaviour
 
     private string savePath;
 
-    void Start()
+    /// <summary>
+    /// Public coroutine method so PawnsTribes.cs can call it in sequence.
+    /// </summary>
+    public IEnumerator LoadAllPawns()
     {
-        // Path to StreamingAssets/Savegame/Pawns
         savePath = Path.Combine(Application.streamingAssetsPath, "Savegame/Pawns");
 
         if (!Directory.Exists(savePath))
         {
-            Debug.LogWarning($"Savegame directory not found at: {savePath}");
-            return;
+            Debug.LogWarning($"Pawn save directory not found at: {savePath}");
+            yield break;
         }
 
         string[] files = Directory.GetFiles(savePath, "*.json");
@@ -40,7 +43,12 @@ public class PawnLoader : MonoBehaviour
             string json = File.ReadAllText(file);
             PawnData data = JsonUtility.FromJson<PawnData>(json);
             SpawnPawn(data);
+
+            // Optionally delay if many files for smoother loading
+            yield return null;
         }
+
+        Debug.Log($"Finished loading {files.Length} pawn(s).");
     }
 
     void SpawnPawn(PawnData data)
@@ -56,11 +64,8 @@ public class PawnLoader : MonoBehaviour
 
         Vector3 position = new Vector3(data.x, data.y, data.z);
         GameObject instance = Instantiate(prefab, position, Quaternion.identity);
-
-        // Name the GameObject after the human
         instance.name = $"[{data.humanid}] {data.firstname} {data.lastname}";
 
-        // Populate all base Human fields, regardless of species
         Human human = instance.GetComponent<Human>();
         if (human != null)
         {

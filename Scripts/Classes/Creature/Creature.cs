@@ -9,7 +9,7 @@ public class Creature : MonoBehaviour
     [Header("Vitals")]
     public int health;
     public float stomach = 100;
-    public float hungerRate = 5f;
+    public float hungerRate = 0.5f;
 
     [Header("Stats")]
     public int speed;
@@ -56,7 +56,7 @@ public class Creature : MonoBehaviour
         }
         else
         {
-            stomach = 0;
+            stomach = 25;
             Debug.Log($"{entityid} is starving!");
         }
     }

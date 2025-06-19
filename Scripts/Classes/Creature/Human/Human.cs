@@ -48,6 +48,12 @@ public class Human : Creature
         Debug.Log($"{firstname} says hello.");
     }
 
+    public override void Eat()
+    {
+        Debug.Log($"{firstname} eats.");
+        stomach += 10;
+    }
+
     public void SendThought(string description, float duration = 2f)
     {
         Brain brain = GetComponent<Brain>();
