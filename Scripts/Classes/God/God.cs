@@ -5,14 +5,14 @@ public class God : MonoBehaviour
 {
     [Header("Player Info")]
     public int playerid;
-    public string username = "Player";
+    public string username;
 
     [Header("Player Stats")]
-    public int points = 1;
-    public float pointsincome = 0.5f;
+    public int points;
+    public float pointsincome;
 
     [Header("Player Abillities")]
-    public List<GodPowers> abilities = new();
+    public List<GodPower> abilities = new();
 
     public virtual void DisplayInfo()
     {
