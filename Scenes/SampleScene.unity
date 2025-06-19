@@ -945,6 +945,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1019957398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134607467954608697, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352796736613005365, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+      propertyPath: m_Name
+      value: Tree
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
 --- !u!1001 &1266783742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1240,6 +1297,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531054061}
   m_CullTransparentMesh: 1
+--- !u!1 &1698391982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698391984}
+  - component: {fileID: 1698391983}
+  m_Layer: 0
+  m_Name: MultiNoiseBiomeGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1698391983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698391982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3b69e3d89bf4f769d43405739b190c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolution: 256
+  heightNoiseScale: 20
+  heightOffset: {x: 0, y: 0}
+  climateNoiseScale: 40
+  climateOffset: {x: 1000, y: 0}
+  detailNoiseScale: 5
+  detailOffset: {x: 0, y: 1000}
+  warpStrength: 0.2
+  treeThreshold: 0.6
+  heightPreviewMat: {fileID: 0}
+  biomePreviewMat: {fileID: 0}
+--- !u!4 &1698391984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698391982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.816746, y: 32.1403, z: 97.57368}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750528987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,10 +1385,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshSize: 300
-  heightScale: 2
+  heightScale: 3
   meshOrigin: {x: 0, y: -1, z: 0}
   meshMaterial: {fileID: -3033667219593020291, guid: e67413c7840334b75bb58dd6507d4500, type: 3}
   bakeNavMesh: 1
+  treePrefab: {fileID: 1763800679}
+  treeColor: {r: 0.20392159, g: 0.8000001, b: 0.20000002, a: 1}
+  colorTolerance: 0.01
+  spacing: 6
+  biomeMapResourcePath: BiomesOutputs/biomemap
 --- !u!114 &1750528989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,6 +1526,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1763800679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5352796736613005365, guid: b0460ec9a274f43aaaadf7c50b2a2f44, type: 3}
+  m_PrefabInstance: {fileID: 1019957398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1905488474
 GameObject:
   m_ObjectHideFlags: 0
