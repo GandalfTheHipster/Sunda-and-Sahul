@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2652928558041939689, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652928558041939689, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.675
+      objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412135, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -59,6 +67,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 579c8e0fe8dd640c488a281c4cf295d2, type: 2}
+    - target: {fileID: 5758001259031412138, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758001259031412138, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758001259031412138, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5758001259031412139, guid: ae513d046500c4c48a6ffb7227dee501, type: 3}
       propertyPath: m_Name
       value: Denisovan

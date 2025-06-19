@@ -1,8 +1,12 @@
 using System.IO;
-using System.Collections.Generic;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
+/// <summary>
+/// Loads pawn data from StreamingAssets/Savegame/Pawns,
+/// spawns prefabs aligned to terrain mesh using MeshSpawnUtils,
+/// and initializes their Human component.
+/// </summary>
 public class PawnLoader : MonoBehaviour
 {
     [System.Serializable]
@@ -23,28 +27,21 @@ public class PawnLoader : MonoBehaviour
 
     private string savePath;
 
-    /// <summary>
-    /// Public coroutine method so PawnsTribes.cs can call it in sequence.
-    /// </summary>
     public IEnumerator LoadAllPawns()
     {
         savePath = Path.Combine(Application.streamingAssetsPath, "Savegame/Pawns");
-
         if (!Directory.Exists(savePath))
         {
             Debug.LogWarning($"Pawn save directory not found at: {savePath}");
             yield break;
         }
 
-        string[] files = Directory.GetFiles(savePath, "*.json");
-
-        foreach (string file in files)
+        var files = Directory.GetFiles(savePath, "*.json");
+        foreach (var file in files)
         {
-            string json = File.ReadAllText(file);
-            PawnData data = JsonUtility.FromJson<PawnData>(json);
+            var json = File.ReadAllText(file);
+            var data = JsonUtility.FromJson<PawnData>(json);
             SpawnPawn(data);
-
-            // Optionally delay if many files for smoother loading
             yield return null;
         }
 
@@ -53,33 +50,42 @@ public class PawnLoader : MonoBehaviour
 
     void SpawnPawn(PawnData data)
     {
+        // Load prefab
         string prefabPath = $"Prefabs/Human/Species/{data.species}";
         GameObject prefab = Resources.Load<GameObject>(prefabPath);
-
         if (prefab == null)
         {
             Debug.LogError($"Prefab not found at: {prefabPath}");
             return;
         }
 
-        Vector3 position = new Vector3(data.x, data.y, data.z);
-        GameObject instance = Instantiate(prefab, position, Quaternion.identity);
+        // Spawn aligned to terrain
+        Vector3 spawnXZ = new Vector3(data.x, 0f, data.z);
+        GameObject instance = MeshSpawnUtils.SpawnPrefabOnMesh(prefab, spawnXZ, transform);
+
+        // **No fallback to saved Y anymore**
+        if (instance == null)
+        {
+            Debug.LogError($"Failed to spawn pawn '{data.species}' at XZ=({data.x},{data.z})");
+            return;
+        }
+
         instance.name = $"[{data.humanid}] {data.firstname} {data.lastname}";
 
-        Human human = instance.GetComponent<Human>();
-        if (human != null)
+        // Initialize the Human script
+        if (instance.TryGetComponent<Human>(out var human))
         {
-            human.entityid = data.entityid;
-            human.humanid = data.humanid;
+            human.entityid  = data.entityid;
+            human.humanid   = data.humanid;
             human.firstname = data.firstname;
-            human.middlename = data.middlename;
-            human.lastname = data.lastname;
-            human.tribeid = data.tribeid;
-            human.health = (int)data.health;
-            human.age = data.age;
-            human.stomach = data.stomach;
+            human.middlename= data.middlename;
+            human.lastname  = data.lastname;
+            human.tribeid   = data.tribeid;
+            human.health    = (int)data.health;
+            human.age       = data.age;
+            human.stomach   = data.stomach;
 
-            Debug.Log($"Spawned {data.species}: {data.firstname} at {position}");
+            Debug.Log($"Spawned {data.species}: {data.firstname} at {instance.transform.position}");
         }
         else
         {
