@@ -1,12 +1,20 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class GodPower : MonoBehaviour
 {
-    [Header("Player Info")]
+    [Header("Power Info")]
     public int powerid;
     public string powername = "Power";
     public int damage;
+
+    /// <summary>
+    /// Called when the player uses this power.
+    /// Override in derived classes to implement the actual effect.
+    /// </summary>
+    public virtual void Activate()
+    {
+        Debug.Log($"[GodPower] Activated power: {powername}");
+    }
 
     public virtual void DisplayInfo()
     {
@@ -18,10 +26,7 @@ public class GodPower : MonoBehaviour
         Debug.Log($"Power Name: {powername}, Damage: {damage}");
     }
 
-    /// <summary>
-    /// Adds a GodPower to the given list if it's not already present.
-    /// </summary>
-    public static void AddPower(List<GodPower> list, GodPower powerToAdd)
+    public static void AddPower(System.Collections.Generic.List<GodPower> list, GodPower powerToAdd)
     {
         if (powerToAdd == null)
         {
@@ -40,10 +45,7 @@ public class GodPower : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Removes a GodPower from the given list if it exists.
-    /// </summary>
-    public static void DeletePower(List<GodPower> list, GodPower powerToRemove)
+    public static void DeletePower(System.Collections.Generic.List<GodPower> list, GodPower powerToRemove)
     {
         if (powerToRemove == null)
         {

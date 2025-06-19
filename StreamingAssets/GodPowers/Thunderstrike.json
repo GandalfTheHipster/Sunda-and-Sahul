@@ -1,0 +1,6 @@
+{
+  "powerid": 2,
+  "powername": "Thunder Strike",
+  "damage": 35,
+  "script": "gp_fireball"
+}

@@ -11,8 +11,12 @@ public class God : MonoBehaviour
     public int points;
     public float pointsincome;
 
-    [Header("Player Abillities")]
-    public List<GodPower> abilities = new();
+    [Header("Player Abilities")]
+    [Tooltip("Raw power IDs read from JSON")]
+    public int[] powerids;               // ← Make sure this line is present
+
+    [Tooltip("Resolved GodPower components")]
+    public List<GodPower> abilities = new List<GodPower>();
 
     public virtual void DisplayInfo()
     {
@@ -37,15 +41,5 @@ public class God : MonoBehaviour
     public virtual void JoinGame()
     {
         Debug.Log($"{username} joins the game.");
-    }
-
-    void Awake()
-    {
-        
-    }
-
-    void Update()
-    {
-        // Optional: future input handling
     }
 }

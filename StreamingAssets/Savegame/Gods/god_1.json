@@ -6,5 +6,7 @@
   "human": false,
   "x": 2.0,
   "y": 0.0,
-  "z": 1.0
+  "z": 1.0,
+  "cameraPrefabName": "GodCam",
+  "powerids": [1, 2]
 }
