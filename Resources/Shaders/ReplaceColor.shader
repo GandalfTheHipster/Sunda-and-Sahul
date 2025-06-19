@@ -1,10 +1,22 @@
-Shader "Custom/ReplaceColor"
+Shader "Custom/ReplaceColorMulti"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _ColorToReplace ("Color To Replace", Color) = (1,0,0,1) // Red
-        _ReplacementColor ("Replacement Color", Color) = (0,1,0,1) // Green
+
+        // Color replacement pairs
+        _ColorToReplace0 ("Color To Replace 0", Color) = (1,0,0,1)
+        _ReplacementColor0 ("Replacement Color 0", Color) = (0,1,0,1)
+
+        _ColorToReplace1 ("Color To Replace 1", Color) = (0,0,1,1)
+        _ReplacementColor1 ("Replacement Color 1", Color) = (1,1,0,1)
+
+        _ColorToReplace2 ("Color To Replace 2", Color) = (1,1,1,1)
+        _ReplacementColor2 ("Replacement Color 2", Color) = (0,0,0,1)
+
+        _ColorToReplace3 ("Color To Replace 3", Color) = (0,1,1,1)
+        _ReplacementColor3 ("Replacement Color 3", Color) = (1,0,1,1)
+
         _Threshold ("Threshold", Range(0,1)) = 0.1
     }
 
@@ -20,8 +32,19 @@ Shader "Custom/ReplaceColor"
             #pragma fragment frag
 
             sampler2D _MainTex;
-            float4 _ColorToReplace;
-            float4 _ReplacementColor;
+
+            float4 _ColorToReplace0;
+            float4 _ReplacementColor0;
+
+            float4 _ColorToReplace1;
+            float4 _ReplacementColor1;
+
+            float4 _ColorToReplace2;
+            float4 _ReplacementColor2;
+
+            float4 _ColorToReplace3;
+            float4 _ReplacementColor3;
+
             float _Threshold;
 
             struct appdata
@@ -46,12 +69,17 @@ Shader "Custom/ReplaceColor"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float4 col = tex2D(_MainTex, i.uv);
-                float diff = distance(col.rgb, _ColorToReplace.rgb);
-                if (diff < _Threshold)
-                {
-                    col.rgb = _ReplacementColor.rgb;
-                }
+                fixed4 col = tex2D(_MainTex, i.uv);
+
+                if (distance(col.rgb, _ColorToReplace0.rgb) < _Threshold)
+                    col.rgb = _ReplacementColor0.rgb;
+                else if (distance(col.rgb, _ColorToReplace1.rgb) < _Threshold)
+                    col.rgb = _ReplacementColor1.rgb;
+                else if (distance(col.rgb, _ColorToReplace2.rgb) < _Threshold)
+                    col.rgb = _ReplacementColor2.rgb;
+                else if (distance(col.rgb, _ColorToReplace3.rgb) < _Threshold)
+                    col.rgb = _ReplacementColor3.rgb;
+
                 return col;
             }
             ENDCG
