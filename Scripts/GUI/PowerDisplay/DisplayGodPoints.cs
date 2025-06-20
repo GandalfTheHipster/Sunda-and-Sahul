@@ -6,35 +6,34 @@ public class DisplayGodPoints : MonoBehaviour
     [Header("UI Reference")]
     public TextMeshProUGUI pointsText;
 
-    [Header("Target Player")]
-    public string playerObjectName = "God_2_Goldenoah";
+    [Header("Game State Reference")]
+    public string gameStateObjectName = "GameState";  // This must match your GameObject name
 
-    private God playerGod;
+    private GameState gameState;
 
     void Start()
     {
-        GameObject playerObj = GameObject.Find(playerObjectName);
+        GameObject gsObj = GameObject.Find(gameStateObjectName);
 
-        if (playerObj == null)
+        if (gsObj == null)
         {
-            Debug.LogError($"[DisplayGodPoints] No GameObject named '{playerObjectName}' found.");
+            Debug.LogError($"[DisplayGodPoints] No GameObject named '{gameStateObjectName}' found.");
             return;
         }
 
-        playerGod = playerObj.GetComponent<God>();
+        gameState = gsObj.GetComponent<GameState>();
 
-        if (playerGod == null)
+        if (gameState == null)
         {
-            Debug.LogError($"[DisplayGodPoints] '{playerObjectName}' does not have a God component.");
-            return;
+            Debug.LogError($"[DisplayGodPoints] GameObject '{gameStateObjectName}' does not have a GameState component.");
         }
     }
 
     void Update()
     {
-        if (playerGod != null && pointsText != null)
+        if (gameState != null && pointsText != null)
         {
-            pointsText.text = $"{playerGod.points}";
+            pointsText.text = $"{gameState.userPoints}";
         }
     }
 }

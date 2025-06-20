@@ -18,7 +18,9 @@ public class Creature : MonoBehaviour
 
     private Brain brain;
 
-    // You can later override or extend this
+    // Prevents repeated hunger thoughts
+    private bool hasTriggeredHungerThought = false;
+
     public virtual void DisplayInfo()
     {
         Debug.Log($"Creature EntityID: {entityid}, Age: {age}");
@@ -28,6 +30,12 @@ public class Creature : MonoBehaviour
     {
         Debug.Log($"{entityid} eats.");
         stomach += 10;
+
+        // Reset hunger thought flag once fed
+        if (stomach > 50)
+        {
+            hasTriggeredHungerThought = false;
+        }
     }
 
     public virtual void Kill()
@@ -37,20 +45,23 @@ public class Creature : MonoBehaviour
 
     public void Thought()
     {
-        age++;
         Debug.Log($"{entityid} just thought about x!");
+    }
+
+    public virtual void isHungry()
+    {
+        Debug.Log($"{entityid} is hungry");
     }
 
     void Awake()
     {
         if (GetComponent<Brain>() == null)
         {
-        gameObject.AddComponent<Brain>();
+            gameObject.AddComponent<Brain>();
         }
 
         stomach = 100;
         brain = GetComponent<Brain>();
-
     }
 
     void Update()
@@ -58,6 +69,16 @@ public class Creature : MonoBehaviour
         if (stomach > 0)
         {
             stomach -= hungerRate * Time.deltaTime;
+
+            if (stomach < 50 && !hasTriggeredHungerThought)
+            {
+                Thought hungerThought = ThoughtLibrary.Get("hunger");
+                if (hungerThought != null && brain != null)
+                {
+                    brain.EnqueueThought(hungerThought);
+                    hasTriggeredHungerThought = true;
+                }
+            }
         }
         else
         {

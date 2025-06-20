@@ -1,12 +1,12 @@
 {
   "playerid": 1,
-  "username": "JustEpicRed",
+  "username": "Goldenoah",
   "points": 1,
   "pointsincome": 1,
-  "human": false,
-  "x": 2.0,
-  "y": 0.0,
-  "z": 1.0,
+  "human": true,
+  "x": 2.2,
+  "y": 13.78,
+  "z": -32.11,
   "cameraPrefabName": "GodCam",
   "powerids": [1, 2]
 }

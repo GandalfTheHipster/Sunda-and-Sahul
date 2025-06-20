@@ -2,27 +2,28 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class CreatureHungerBehaviour : MonoBehaviour
+public class CreatureHungerBehaviour : CreatureBehaviour
 {
-    private Creature creature;
     private NavMeshAgent agent;
     private GameObject targetBush;
 
     public float hungerThreshold = 50f;
     public float eatDistance = 2f;
-
     private bool isSeekingFood = false;
 
-    void Awake()
+    protected override void Awake()
     {
-        creature = GetComponent<Creature>();
+        base.Awake();
         agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
+        if (!isActive) return;
+
         if (creature.stomach < hungerThreshold && !isSeekingFood)
         {
+            creature.isHungry();
             FindAndSeekFood();
         }
 
@@ -39,7 +40,22 @@ public class CreatureHungerBehaviour : MonoBehaviour
         }
     }
 
-    void FindAndSeekFood()
+    public override void StartBehaviour()
+    {
+        base.StartBehaviour();
+        isSeekingFood = false;
+        targetBush = null;
+    }
+
+    public override void StopBehaviour()
+    {
+        base.StopBehaviour();
+        isSeekingFood = false;
+        targetBush = null;
+        agent.isStopped = true;
+    }
+
+    private void FindAndSeekFood()
     {
         GameObject[] bushes = GameObject.FindGameObjectsWithTag("FoodBush");
         if (bushes.Length == 0)
@@ -48,7 +64,6 @@ public class CreatureHungerBehaviour : MonoBehaviour
             return;
         }
 
-        // Find nearest bush
         float closestDistance = float.MaxValue;
         GameObject closestBush = null;
 
@@ -68,13 +83,6 @@ public class CreatureHungerBehaviour : MonoBehaviour
             agent.SetDestination(targetBush.transform.position);
             agent.isStopped = false;
             isSeekingFood = true;
-
-            // 🧠 If this is a Human, send a hunger thought
-            Human human = creature as Human;
-            if (human != null)
-            {
-                human.SendThought("I need to find food...");
-            }
         }
     }
 }

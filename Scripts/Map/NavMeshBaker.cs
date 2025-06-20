@@ -10,41 +10,17 @@ public static class NavMeshBaker
         float meshSize,
         float heightScale)
     {
-        // 1) Load the 'Sapien' prefab to get its NavMeshAgent settings
-        GameObject sapiPrefab = Resources.Load<GameObject>("Sapien");
-        if (sapiPrefab == null)
-        {
-            Debug.LogError("[NavMeshBaker] Could not load 'Sapien' prefab from Resources.");
-        }
+        // Default/fallback agent settings
+        int   agentTypeID  = 0;    // Use default humanoid
+        float agentHeight  = 2f;
+        float agentRadius  = 0.5f;
 
-        int   agentTypeID  = 0;
-        float agentHeight  = 2f;   // default fallback
-        float agentRadius  = 0.5f; // default fallback
-        // float agentClimb = <your-default>; // you can expose this if needed
-
-        if (sapiPrefab != null)
-        {
-            var agentComp = sapiPrefab.GetComponent<NavMeshAgent>();
-            if (agentComp != null)
-            {
-                agentTypeID = agentComp.agentTypeID;
-                agentHeight = agentComp.height;
-                agentRadius = agentComp.radius;
-                // we’re skipping stepOffset here because it's unavailable
-            }
-            else
-            {
-                Debug.LogWarning("[NavMeshBaker] 'Sapien' has no NavMeshAgent; using defaults.");
-            }
-        }
-
-        // 2) Override the bake settings
+        // Get default NavMesh settings for agentTypeID 0
         var settings = NavMesh.GetSettingsByID(agentTypeID);
         settings.agentHeight = agentHeight;
         settings.agentRadius = agentRadius;
-        // settings.agentClimb  = agentClimb; // optionally set if you expose it
 
-        // 3) Build the NavMesh from the runtime mesh
+        // Build the NavMesh from the runtime mesh
         var source = new NavMeshBuildSource
         {
             shape        = NavMeshBuildSourceShape.Mesh,
@@ -66,8 +42,9 @@ public static class NavMeshBaker
             meshOrigin,
             Quaternion.identity
         );
+
         NavMesh.AddNavMeshData(data);
 
-        Debug.Log("[NavMeshBaker] Runtime NavMesh baked with Sapien dimensions.");
+        Debug.Log("[NavMeshBaker] Runtime NavMesh baked using default agent dimensions.");
     }
 }

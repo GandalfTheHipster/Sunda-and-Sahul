@@ -37,8 +37,6 @@ public static class MeshSpawnUtils
         float surfaceY = origin.y + hm[iy, ix] * heightScale;
         Vector3 spawnPos = new Vector3(worldXZ.x, surfaceY, worldXZ.z);
 
-        Debug.Log($"[MeshSpawnUtils] surfaceY={surfaceY:F2}");
-
         // 3) instantiate at that Y
         GameObject go = Object.Instantiate(prefab, spawnPos, Quaternion.identity, parent);
 
@@ -48,9 +46,7 @@ public static class MeshSpawnUtils
         {
             float bottomY = feet.position.y;
             float offset  = surfaceY - bottomY;
-            Debug.Log($"[MeshSpawnUtils] using Feet: bottomY={bottomY:F2}, offset={offset:F2}");
             go.transform.position += Vector3.up * offset;
-            Debug.Log($"[MeshSpawnUtils] finalY={go.transform.position.y:F2}\n");
             return go;
         }
 
@@ -84,9 +80,7 @@ public static class MeshSpawnUtils
         if (found)
         {
             float offset = surfaceY - bottom;
-            Debug.Log($"[MeshSpawnUtils] measured bottomY={bottom:F2}, offset={offset:F2}");
             go.transform.position += Vector3.up * offset;
-            Debug.Log($"[MeshSpawnUtils] finalY={go.transform.position.y:F2}\n");
         }
         else
         {

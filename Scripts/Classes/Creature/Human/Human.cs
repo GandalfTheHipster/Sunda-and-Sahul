@@ -54,26 +54,30 @@ public class Human : Creature
         stomach += 10;
     }
 
-    public void SendThought(string description, float duration = 2f)
+    public override void isHungry()
+    {
+        Debug.Log($"{firstname} is hungry");
+    }
+
+    public void SendThought(string key)
     {
         Brain brain = GetComponent<Brain>();
         if (brain != null)
         {
-            Thought thought = new Thought(description, duration);
-            brain.EnqueueThought(thought);
-            Debug.Log($"{firstname} had a thought: {description}");
+            Thought thought = ThoughtLibrary.Get(key);
+            if (thought != null)
+            {
+                brain.EnqueueThought(thought);
+                Debug.Log($"{firstname} had a thought: {thought.description}");
+            }
+            else
+            {
+                Debug.LogWarning($"{firstname} tried to think about '{key}', but it wasn't found in the ThoughtLibrary.");
+            }
         }
         else
         {
-            Debug.LogWarning($"{firstname} has no brain component attached!");
+            Debug.LogWarning($"{firstname} has no Brain component attached!");
         }
-    }
-
-
-    // Example for later updating
-    public void HaveBirthday()
-    {
-        age++;
-        Debug.Log($"{firstname} just turned {age}!");
     }
 }
