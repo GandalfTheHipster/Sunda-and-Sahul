@@ -3,7 +3,7 @@ using UnityEngine;
 public class CreationEditor : MonoBehaviour
 {
     [Header("Editor Info")]
-    public int entityid
+    public int entityid;
 
     // What sort of stuff do we want to edit? I want people to be able to create custom characters in game
     // Maybe Animals one day?
@@ -12,7 +12,7 @@ public class CreationEditor : MonoBehaviour
 
     public virtual void DisplayInfo()
     {
-        Debug.Log($"Creature EntityID: {entityid}, Age: {age}");
+        Debug.Log($"Creature EntityID: {entityid}, Age: {entityid}");
     }
 
     public virtual void Export()
